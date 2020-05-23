@@ -1,0 +1,67 @@
+#include<bits/stdc++.h> 
+using namespace std;
+typedef long long int ll;
+#define MOD 1000000007
+#define fo(i,k,n) for(i=k;i<=n;i++)
+#define endl '\n'
+ll dp[101][100001];
+//memoisation
+ll knapsnack(ll* w,ll* v,ll n,ll mw){
+	if(dp[n][mw]>-1) return dp[n][mw];
+	if(n==0) return 0;//no item left
+	if(mw==0) return 0;//no more capacity
+	ll op1 = knapsnack(w,v,n-1,mw);
+	ll op2 = LLONG_MIN;
+	if(w[n-1]<=mw) op2 = v[n-1]+knapsnack(w,v,n-1,mw-w[n-1]);
+	return dp[n][mw]=max(op1,op2);
+}
+//tabulation
+ll knapsnacki(ll* w,ll* v,ll n,ll mw){
+	ll i,j;
+	fo(i,0,mw) dp[0][i]=0;
+	fo(i,0,n) dp[i][0]=0;
+	fo(i,1,n){
+		fo(j,1,mw){
+			dp[i][j] = dp[i-1][j];
+			if(w[i-1]<=j) dp[i][j] = max(dp[i][j],v[i-1]+dp[i-1][j-w[i-1]]);
+		}
+	}
+	return dp[n][mw];
+}
+//tabulation memory optimised
+ll knapsnacki2(ll* w,ll* v,ll n,ll mw){
+	ll i,j;
+	ll dp2[2][mw+1];
+	fo(i,0,mw) dp[0][i]=0;
+	dp[1][0]=0;
+	ll idx=1;
+	fo(i,1,n){
+		fo(j,1,mw){
+			dp[idx][j] = dp[idx^1][j];
+			if(w[i-1]<=j) dp[idx][j] = max(dp[idx][j],v[i-1]+dp[idx^1][j-w[i-1]]);
+		}
+		idx^=1;
+	}
+	return dp[idx^1][mw];
+}
+void solve(){
+	ll i,j,n,mw;
+	cin>>n>>mw;
+	ll* w = new ll[n];
+	ll* v = new ll[n];
+	fo(i,0,n-1){
+		cin>>w[i]>>v[i];
+	}
+	memset(dp,-1,sizeof(dp));
+	cout<<knapsnacki2(w,v,n,mw)<<endl;
+}
+int main(){
+	ios_base::sync_with_stdio(false);
+	cin.tie(0);cout.tie(0);
+	ll t;
+	t=1;//cin>>t;
+	while(t--){
+		solve();
+	}
+	return 0;
+}

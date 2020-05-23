@@ -8,8 +8,12 @@ typedef long long int ll;
 int main(){
 	ios_base::sync_with_stdio(false);
 	cin.tie(0);cout.tie(0);
-	ll arr[5];
-	if(arr[10] || 1) cout<<"true";
-	else cout<<"false";
+	ll n;
+	cin>>n;
+	if(n%2==0){
+		cout<<n+4<<" "<<4;
+	}else{
+		cout<<n+9<<" "<<9;
+	}
 	return 0;
 }
