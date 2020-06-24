@@ -10,6 +10,8 @@ typedef long long int ll;
 #define ss second
 #define all(x) x.begin(),x.end()
 #define mset(arr,val) memset(arr,val,sizeof(arr))
+//DSU by rank and path compression
+//https://codeforces.com/problemset/problem/1133/F1
 struct Subset{ 
     ll parent; 
     ll rank; 
@@ -51,11 +53,15 @@ void solve(){
 	}
 	//cout<<vmxe+1<<endl;
 	ll count = 0;
+	
+	//makeSet
 	Subset *subsets = (Subset*)malloc(n*sizeof(Subset)); 
     for ( i = 0; i < n; ++i) { 
         subsets[i].parent = i; 
         subsets[i].rank = 0; 
     } 
+    
+    
 	vector<ll> ans;
 		for(i=0;i<=mxe-1&&count<n-1;i++){
 			ll adjv = edges[vmxe][i];

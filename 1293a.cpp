@@ -15,7 +15,25 @@ typedef pair<ll,ll> pii;
 #define mset(arr,val) memset(arr,val,sizeof(arr))
 
 void solve(ll caseno){
-	ll i,j
+	ll i,j,n,s,k;
+    cin>>n>>s>>k;
+    set<ll> closed;
+    fo(i,0,k) {
+        cin>>j;
+        closed.insert(j);
+    }
+    for(i=0;i<=1005;i++){
+        ll left = max(1ll,s-i);
+        ll right = min(n,s+i);
+        if(closed.find(left)==closed.end()){
+            cout<<i<<endl;
+            return;
+        }
+        if(closed.find(right)==closed.end()){
+            cout<<i<<endl;
+            return;
+        }
+    }
 }
 int main(){
 	ios_base::sync_with_stdio(false);

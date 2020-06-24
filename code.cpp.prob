@@ -1,0 +1,1 @@
+{"group":"local","interactive":false,"local":true,"memoryLimit":1024,"name":"code","srcPath":"/home/apoorva/progs/code.cpp","tests":[{"id":1591965730554,"input":"4 2\n10909234 9\n10909236 8\n10909237 10\n10909235 98","output":""}],"timeLimit":3000,"url":"/home/apoorva/progs/code.cpp"}

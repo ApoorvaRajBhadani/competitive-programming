@@ -1,8 +1,6 @@
 #include<bits/stdc++.h> 
-using namespace std;
+using   namespace std;
 typedef long long int ll;
-typedef vector<ll> vi;
-typedef pair<ll,ll> pii;
 #define fo(i,s,e_ex) for(i=s;i<e_ex;i++)
 #define Fo(i,k,n) for(i=k;k<n?i<=n:i>=n;k<n?i+=1:i-=1)
 #define endl '\n'
@@ -13,17 +11,39 @@ typedef pair<ll,ll> pii;
 #define ss second
 #define all(x) x.begin(),x.end()
 #define mset(arr,val) memset(arr,val,sizeof(arr))
-
-void solve(ll caseno){
-	ll i,j
+ll arr[505];
+void solve(){
+	ll i,j,n,pr=0,nz=0,no=0;
+	cin>>n;
+	bool sorted=true;
+	fo(i,0,n){
+		cin>>arr[i];
+		if(arr[i]<pr) sorted=false;
+		pr = arr[i];
+	}
+	fo(i,0,n){
+		cin>>j;
+		if(j==0) nz++;
+		else no++;
+	}
+	if(sorted){
+		cout<<"Yes"<<endl;
+	}else{
+		if(no!=0 && nz!=0){
+			cout<<"Yes"<<endl;
+		}else{
+			cout<<"No"<<endl;
+		}
+	}
 }
 int main(){
 	ios_base::sync_with_stdio(false);
 	cin.tie(0);cout.tie(0);
-	ll t=1;
+	ll t;
+	t=1;
 	cin>>t;
-	for(ll i=1;i<=t;i++){
-		solve(i);
+	while(t--){
+		solve();
 	}
 	return 0;
 }
