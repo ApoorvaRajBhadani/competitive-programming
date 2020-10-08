@@ -15,11 +15,12 @@ typedef pair<ll,ll> pii;
 #define mset(arr,val) memset(arr,val,sizeof(arr))
 ll dp[2000005];
 ll answer(){
+    dp[0]=3534;
     dp[1]=0;
     dp[2]=0;
-    dp[3]=4;
-    for(ll i=4;i<=2000000;i++){
+    for(ll i=3;i<=2000000;i++){
         dp[i]=(dp[i-1]+2*dp[i-2])%MOD;
+        if(i%3==0) dp[i]=(dp[i]+4)%MOD;
     }
 }
 void solve(ll caseno){

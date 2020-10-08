@@ -2,11 +2,14 @@
 using namespace std;
 typedef long long int ll;
 typedef vector<ll> vi;
+typedef vector<vector<ll>> vvi;
+typedef vector<bool> vb;
 typedef pair<ll,ll> pii;
 #define fo(i,s,e_ex) for(i=s;i<e_ex;i++)
 #define Fo(i,k,n) for(i=k;k<n?i<=n:i>=n;k<n?i+=1:i-=1)
 #define endl '\n'
 #define MOD 1000000007//998244353
+#define setbits(x) __builtin_popcountll(x)
 #define pbb push_back
 #define mpp make_pair
 #define ff first

@@ -46,12 +46,12 @@ int main(){
 
     buildTree(arr,tree,0,n-1,1);
 
-    for(ll i=1;i<4*n;i++) cout<<tree[i]<<endl;
+    for(ll i=1;i<4*n;i++) cout<<i<<' '<<tree[i]<<endl;
 
     updateTree(arr,tree,0,n-1,1,2,10);
     cout<<"3rd value replaced with 10"<<endl;
 
-    for(ll i=1;i<4*n;i++) cout<<tree[i]<<endl;
+    for(ll i=1;i<4*n;i++) cout<<i<<' '<<tree[i]<<endl;
 
     ll ans=query(tree,0,n-1,1,1,3);
     cout<<"Sum b/w 2nd index to 4th index "<<ans<<endl;
